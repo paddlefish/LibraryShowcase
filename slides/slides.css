@@ -1,0 +1,81 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body { font-family: 'Helvetica'; font-weight: 200; }
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+.remark-slide-content {
+  font-size: 30px;
+}
+.remark-slide-content li {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+.floatleft {
+  float: left;
+}
+.floatright {
+  float: right;
+}
+.fitWidth img {
+  width: 100%;
+}
+.fitHeight img {
+  width: 30%;
+}
+.reduce50pct img {
+  width: 50%;
+}
+.reduce10pct img {
+  width: 10%;
+}
+
+.inverse {
+  background: #272822;
+  color: #CCDCDC;
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1, .inverse h2 {
+  color: #f3f3f3;
+  line-height: 0.4em;
+}
+.bonus {
+  position: absolute;
+  bottom: 80px;
+  margin-right: 60px;
+  padding-left: 10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border: 1px solid black;
+  background: #777;
+  color: #FFF;
+}
+
+.phoneFrame img {
+  float: right;
+  background-image: url(iPhone6s_iOSHIG_Frame.png);
+  background-repeat: no-repeat;
+  background-position: 1px top;
+  margin-right: -100px;
+  background-size: 420px 739px;
+  padding: 92px 26px 0 28px;
+  width: 365px;
+  height: 371px;
+}
+
+.phoneFrameBottom img {
+  float: right;
+  background-image: url(iPhone6s_iOSHIG_Frame.png);
+  background-repeat: no-repeat;
+  background-position: 1px bottom;
+  margin-right: -100px;
+  background-size: 420px 739px;
+  padding: 0 26px 92px 28px;
+  width: 365px;
+  height: 371px;
+}

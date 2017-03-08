@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Third Party Libraries</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="slides.css">
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Third Party Libraries
+Making Life Easier
+
+Andrew Rahn – Iconfactory – andy@iconfactory.com
+
+???
+
+---
+
+# Topics
+
+* [Alamofire](https://github.com/Alamofire/Alamofire)
+* [AsyncDisplayKit](https://github.com/facebook/AsyncDisplayKit)
+* [BonMot](https://github.com/Raizlabs/BonMot)
+* [Chameleon](https://github.com/ViccAlexander/Chameleon)
+* [Charts](https://github.com/danielgindi/Charts)
+* [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift)
+* [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
+* [DeviceKit](https://github.com/dennisweissmann/DeviceKit)
+* [Ensembles](https://github.com/drewmccormack/ensembles)
+* [FSCalendar](https://github.com/WenchaoD/FSCalendar)
+* [FileKit](https://github.com/nvzqz/FileKit)
+
+---
+
+* [Firebase Analytics](https://firebase.google.com/docs/analytics/ios/start)
+* [GDPerformanceView](https://github.com/dani-gavrilov/GDPerformanceView-Swift)
+* [Hedwig](https://github.com/onevcat/Hedwig)
+* [Hero](https://github.com/lkzhao/Hero)
+* [IGListKit](https://github.com/Instagram/IGListKit)
+* [ImageViewer](https://github.com/MailOnline/ImageViewer)
+* [Kingfisher](https://github.com/onevcat/Kingfisher)
+* [MGSwipeTableCell](https://github.com/MortimerGoro/MGSwipeTableCell)
+* [Moya](https://github.com/Moya/Moya)
+* [Natalie](https://github.com/krzyzanowskim/Natalie)
+
+---
+
+* [Onboard](https://github.com/mamaral/Onboard)
+* [PermissionScope](https://github.com/nickoneill/PermissionScope)
+* [PromiseKit](https://github.com/mxcl/PromiseKit)
+* [Quick + Nimble](https://github.com/Quick/Quick)
+* [RandomKit](https://github.com/nvzqz/RandomKit)
+* [Realm](https://github.com/realm/realm-cocoa)
+* [ResponseDetective](https://github.com/netguru/ResponseDetective)
+* [RxSwift](https://github.com/ReactiveX/RxSwift)
+* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+* [SwiftyStoreKit](https://github.com/bizz84/SwiftyStoreKit)
+
+---
+
+* [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults)
+* [Timepiece](https://github.com/naoty/Timepiece)
+* [Valet](https://github.com/square/Valet)
+* [PKHUD](https://github.com/pkluz/PKHUD)
+* [Siesta](https://bustoutsolutions.github.io/siesta/)
+
+---
+
+# Alamofire
+
+Elegant Networking in Swift
+
+* Chainable Request / Response Methods
+* Parameter Encoding
+* Upload and Download with Progress
+* Authentication
+* HTTP Response Validation
+* TLS Certificate and Public Key Pinning
+* Reachability
+* Routing
+
+---
+
+# Alamofire Install
+
+```bash
+gem install cocoapods
+```
+
+Add to Podfile:
+
+```ruby
+target '<Your Target Name>' do
+    pod 'Alamofire', '~&gt; 4.3'
+end
+```
+
+```bash
+pod install
+```
+
+---
+
+# Making a Request
+
+```swift
+import Alamofire
+
+...
+
+Alamofire.request("https://httpbin.org/get")
+```
+
+---
+
+# Handling Response
+
+```swift
+Alamofire.request("https://httpbin.org/get").responseJSON { response in
+    print(response.request)  // original URL request
+    print(response.response) // HTTP URL response
+    print(response.data)     // server data (Any)
+    print(response.result)   // result of response serialization
+
+    if let JSON = response.result.value {
+        print("JSON: \(JSON)")
+    }
+}
+```
+
+---
+
+# Response Validation
+
+* status codes 400..&lt;599 not errors by default
+* Use a validator
+
+```swift
+Alamofire.request("https://httpbin.org/get")
+  .validate(statusCode: 200..&lt;300)
+  .validate(contentType: ["application/json"])
+  .responseData { response in
+    switch response.result {
+      case .success:
+        print("Validation Successful")
+      case .failure(let error):
+        print(error)
+    }
+  }
+```
+
+* Or use .validate()
+  * status code within 200...299
+  * Response Content-Type matches Request Accept header
+
+---
+
+# Response Handler Queue
+
+* To handle response on a particular Queue
+
+```swift
+let utilityQueue = DispatchQueue.global(qos: .utility)
+
+Alamofire.request("https://httpbin.org/get").responseJSON(queue: utilityQueue) { response in
+    print("Executing response handler on utility queue")
+}
+```
+
+---
+
+# Parameter Encoding
+
+* URL, JSON and PropertyList
+* custom encoding via ParameterEncoding protocol
+
+---
+
+# Exercise
+
+* Create new app
+* Use cocoapods to install Alamofire
+* Add a table view
+* Fetch https://paddlefish.net/evine_training/api/v1/themes.json
+* Fill table with theme name
+
+---
+
+.center[![podfile](podfile.png)]
+
+---
+
+.center[![pod_install](pod_install.png)]
+
+---
+
+.center[![storyboard_tableview](storyboard_tableview.gif)]
+
+---
+
+.fitWidth[.center[![viewcontroller](viewcontroller.png)]]
+
+---
+
+.fitWidth[.center[![alamofire_request](alamofire_request.png)]]
+
+---
+
+.center[![storyboard_tableviewcell](storyboard_tableviewcell.gif)]
+
+---
+
+.fitWidth[.center[![info_plist](info_plist.png)]]
+
+---
+
+.fitWidth[.center[![storyboard_outlets](storyboard_outlets.png)]]
+
+---
+
+.fitWidth[.center[![result](result.png)]]
+
+---
+
+class: center, middle
+
+# [Siesta](https://bustoutsolutions.github.io/siesta/)
+
+The elegant way to write iOS / macOS REST clients
+
+---
+
+class: center, middle
+.fitWidth[![siesta_intro](siesta_intro.png)]
+
+---
+
+# What is Siesta
+
+* resource-centric alternative to request-centric
+* app-wide observable model of a RESTful resource’s state
+  * What is the latest data for this resource, if any?
+  * Did the latest request result in an error?
+  * Is there a request in progress?
+* broadcasts notifications whenever answers change
+
+---
+
+# Install
+
+* Cocoapods
+
+```ruby
+pod 'Siesta', '~&gt; 1.0'
+pod 'Siesta/UI', '~&gt; 1.0'
+pod 'Siesta/Alamofire', '~&gt; 1.0'
+```
+
+---
+
+class: center, middle
+.fitWidth[![siesta_api](siesta_api.png)]
+
+---
+
+class: center, middle
+.fitWidth[![siesta_vc](siesta_vc.png)]
+
+---
+
+# Siesta: Other Features
+
+* ResourceStatusOverlay
+  * activity indicator
+  * nicely formatted error message
+  * retry button
+* Easy to build robust image loading
+
+"elegant abstraction that solves problems you actually have, making your code simpler and less brittle"
+
+---
+
+# [Chameleon](https://github.com/ViccAlexander/Chameleon)
+
+Color palette for iOS
+* dark and light shades
+* complementary colors
+* contrasting colors
+* find colors from an image
+* Global color scheme
+
+---
+
+# [Charts](https://github.com/danielgindi/Charts)
+
+* Line Graphs
+* Bar charts
+* Pie Charts
+* Scatter Charts
+* Candlestick, Bubbles, Radar Web
+* Chart Legends
+
+---
+
+# [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
+
+"A drop-in UITableView/UICollectionView superclass category for showing empty datasets whenever the view has no content to display"
+
+.fitWidth[![empty_states](empty_states.png)]
+
+* [Designing for the Empty State](https://tympanus.net/codrops/2013/01/09/designing-for-the-empty-states/)
+
+---
+
+# [BonMot](https://github.com/Raizlabs/BonMot)
+
+* Easily create Attributed Strings
+  * Strings with font size, color, styling...
+
+
+```swift
+label.attributedText = text.styled(with:
+  .color(myColor),
+  .font(myFont),
+  .numberSpacing(.monospaced),
+  .alignment(.center)
+)
+```
+
+---
+
+# Exercise
+
+* Use Dispatch to delay loading the table
+* Use DZNEmptyDataSet to show some loading info
+  * Use BonMot to create an attributed description and title
+
+---
+
+class: middle, center
+
+# Try to do it on your own
+If you need help there are hints on the next few slides
+
+---
+.center[![DZN_BonMot_PodInstall](DZN_BonMot_PodInstall.png)]
+---
+.center[![DZN_BonMot_Podfile](DZN_BonMot_Podfile.png)]
+---
+.fitWidth[![DZN_BonMot_Dispatch](DZN_BonMot_Dispatch.png)]
+---
+.fitWidth[![DZN_BonMot_VC_1](DZN_BonMot_VC_1.png)]
+---
+.fitWidth[![DZN_BonMot_VC_2](DZN_BonMot_VC_2.png)]
+---
+.fitWidth[![DZN_BonMot_VC_3](DZN_BonMot_VC_3.png)]
+---
+class: middle, center
+.fitHeight[![bonmot_dzn_screenshot](bonmot_dzn_screenshot.png)]
+---
+
+# [DeviceKit by Dennis Weissmann](https://github.com/dennisweissmann/DeviceKit)
+
+DeviceKit is a value-type replacement of UIDevice
+
+* Simplifies testing what kind of device
+* What battery level
+* Are you in the iOS Simulator
+
+```swift
+let device = Device()
+switch device {
+case .simulator(.iPhone6s): break 
+case .simulator(.iPadAir2): break
+default: break
+}
+```
+---
+
+# [FileKit](https://github.com/nvzqz/FileKit)
+
+Simple and expressive file management in Swift
+
+* Simpler than FileManager
+* Path APIs
+* Make directories, symlinks, files
+* Search filesystem
+* Iterate directories
+* operator overloads for file paths
+
+---
+
+# [Firebase Analytics](https://firebase.google.com/docs/analytics/ios/start)
+
+* Events: What is happening in your app
+  * user actions
+  * system events
+  * errors
+* User properties: Attributes you define
+  * describe segments of your userbase
+  * language preference or geographic location.
+
+---
+
+# [GDPerformanceView](https://github.com/dani-gavrilov/GDPerformanceView-Swift)
+
+.fitWidth[![GDPerformanceView](GDPerformanceView.png)]
+
+Shows FPS, CPU usage, app and iOS versions above the status bar and report FPS and CPU usage via delegate
+
+---
+
+# [Hedwig](https://github.com/onevcat/Hedwig)
+
+Send email to any SMTP server
+
+---
+
+# [Hero](https://github.com/lkzhao/Hero)
+
+Hero is a library for building iOS view controller transitions.
+
+.center[![hero](hero.gif)]
+
+```swift
+// View Controller 1
+redView.heroID = "foo"
+greyView.heroID = "bar"
+```
+
+```swift
+// View Controller 2
+isHeroEnabled = true
+redView.heroID = "foo"
+greyView.heroID = "bar"
+greenView.heroModifiers = [.translate(x:0, y:100), .scale(0.5)]
+```
+
+---
+
+# [IGListKit](https://github.com/Instagram/IGListKit)
+
+Data-driven UICollectionView framework for building fast and flexible lists
+
+* Makes sophisticated lists easier to build right
+  * no more performBatchUpdates(_:, completion:) reloadData()
+* Computes diffs automatically
+  * Reloading updated data set animates changes!
+
+---
+
+* [ImageViewer](https://github.com/MailOnline/ImageViewer)
+
+Display image and video full screen with beautiful animations.
+
+.center[![imageviewer](imageviewer.gif)]
+
+* Pinch to zoom
+* Swipe to dismiss
+
+---
+
+# [Kingfisher](https://github.com/onevcat/Kingfisher)
+
+lightweight, pure-Swift library for downloading and caching images from the web
+
+```swift
+let url = URL(string: "url_of_your_image")
+imageView.kf.setImage(with: url)
+```
+
+---
+
+# [MGSwipeTableCell](https://github.com/MortimerGoro/MGSwipeTableCell)
+
+UITableViewCell subclass that allows to display swipeable buttons with a variety of transitions
+
+.center[![static](static.gif)]
+
+```swift
+cell = MGSwipeTableCell(...)
+
+cell.leftButtons = [MGSwipeButton(title:..., icon:..., ...)
+cell.leftSwipeSettings.transition = MGSwipeTransition.Rotate3D
+```
+
+---
+
+# [Natalie](https://github.com/krzyzanowskim/Natalie)
+
+Storyboard Code Generator
+
+* Prevent runtime errors from missing/misspelled string identifiers
+* New build step generates .swift file with storyboard ids converted to enums
+
+```swift
+let vc = Storyboards.Main.instantiateInitialViewController()
+```
+
+or
+
+
+```swift
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  if segue == MainViewController.Segue.ScreenOneSegue {    
+    let viewController = segue.destinationViewController as? MyViewController
+    viewController?.view.backgroundColor = UIColor.yellowColor()
+  }
+}
+```
+
+---
+
+# [Onboard](https://github.com/mamaral/Onboard)
+
+.fitHeight[.center[![onboard](onboard.gif)]]
+
+* OnboardingContentViewController handles the work
+* Supports images and videos
+
+---
+
+# [PermissionScope](https://github.com/nickoneill/PermissionScope)
+
+Intelligent iOS permissions UI and unified API
+
+.center[.fitHeight[![permission_scope](permission_scope.gif)]]
+
+---
+
+# PermissionScope (cont'd)
+
+* Example Code
+
+```swift
+
+let pscope = PermissionScope()
+
+...
+
+  pscope.addPermission(LocationWhileInUsePermission(),
+    message: "We use this to calculate shipping")
+
+...
+
+  pscope.show({ finished, results in
+      print("got results \(results)")
+  }, cancelled: { (results) -&gt; Void in
+      print("thing was cancelled")
+  })   
+```
+
+---
+
+# [PromiseKit](https://github.com/mxcl/PromiseKit)
+
+Thoughtful and complete implementation of promises
+
+* Standardized way to return a "I'll get back to you"
+* Chain multiple promises
+* Cascade errors
+* composable (with `when`)
+* Create from callbacks or other async systems
+
+```swift
+login().then { json -&gt; Promise<UIImage> in
+    return fetchAvatar(json["username"])
+}.then { avatarImage in
+    self.imageView.image = avatarImage
+}.catch { error in
+    UIAlertView(/*…*/).show()
+}
+```
+
+---
+
+# [Realm](https://github.com/realm/realm-cocoa)
+
+Realm is a mobile database
+
+* replacement for Core Data &amp; SQLite
+  * Mobile-first
+  * Simple
+  * Modern
+  * Fast
+* Object Database
+* Synchronization
+* Well documented
+
+---
+
+# [RxSwift](https://github.com/ReactiveX/RxSwift)
+
+Reactive Programming in Swift
+
+* Full support for Microsoft's Reactive Extensions
+* Integrates tightly with UIKit via RxCocoa
+* Observables are like Promises
+  * represents a result that's coming later
+  * can represent several future values
+  * or none
+  * can result in error, too
+  * subscriber notified of completion, too
+  * Lifetime of interest via Disposable
+  * Composable
+  * Functional
+
+---
+
+# [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+
+better way to deal with JSON data in Swift
+
+* Built-in JSON handling is too verbose and clumsy
+* Use SwiftyJSON
+
+```swift
+let json = JSON(data: dataFromNetworking)
+if let userName = json[0]["user"]["name"].string {
+  //Now you got your value
+}
+```
+
+---
+
+# [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults)
+
+Modern Swift API for UserDefaults
+
+* expressive Swifty API
+* benefits of static typing
+  * No more mis-typing string constants
+  * No more storing wrong types
+
+
+```swift
+extension DefaultsKeys {
+  static let username = DefaultsKey&lt;String?&gt;("username")
+  static let launchCount = DefaultsKey&lt;Int&gt;("launchCount")
+}
+```
+
+
+```swift
+Defaults[.username] = "joe"
+print(Defaults[.launchCount])
+```
+
+---
+
+# [Valet](https://github.com/square/Valet)
+
+Valet lets you securely store data in the iOS or OS X Keychain
+
+* Not yet migrated to support Swift 3
+* Stalled...?
+
+---
+
+# [PKHUD](https://github.com/pkluz/PKHUD)
+
+Swift based reimplementation of the Apple HUD
+
+FLAnimatedImage
+Crashlytics/Fabric
+
+---
+
+# DEMO
+
+Build the Evine web-wrapper app from scratch.
+
+</textarea>
+    <script src="remark.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
+
