@@ -1,0 +1,98 @@
+PODS:
+  - Alamofire (4.4.0)
+  - AsyncDisplayKit (2.1):
+    - AsyncDisplayKit/PINRemoteImage (= 2.1)
+  - AsyncDisplayKit/Core (2.1)
+  - AsyncDisplayKit/PINRemoteImage (2.1):
+    - AsyncDisplayKit/Core
+    - PINRemoteImage/iOS (= 3.0.0-beta.7)
+    - PINRemoteImage/PINCache
+  - BonMot (4.2)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - Charts/Core (3.0.1)
+  - Charts/Realm (3.0.1):
+    - Charts/Core
+    - RealmSwift (~> 1.1)
+  - CryptoSwift (0.6.7)
+  - DeviceKit (1.0.1)
+  - DZNEmptyDataSet (1.8.1)
+  - FileKit (4.0.0)
+  - FSCalendar (2.7.2)
+  - GDPerformanceView-Swift (1.1.2)
+  - Hero (0.3.3)
+  - IGListKit (2.0.0)
+  - ImageViewer (4.0)
+  - Kingfisher (3.5.1)
+  - MGSwipeTableCell (1.5.6)
+  - PINCache (3.0.1-beta.2):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.2)
+    - PINCache/Core (= 3.0.1-beta.2)
+  - PINCache/Arc-exception-safe (3.0.1-beta.2):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.2)
+  - PINRemoteImage/Core (3.0.0-beta.7)
+  - PINRemoteImage/iOS (3.0.0-beta.7):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.0-beta.7):
+    - PINCache (= 3.0.1-beta.2)
+    - PINRemoteImage/Core
+  - Realm (1.1.0):
+    - Realm/Headers (= 1.1.0)
+  - Realm/Headers (1.1.0)
+  - RealmSwift (1.1.0):
+    - Realm (= 1.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - AsyncDisplayKit
+  - BonMot
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Charts/Realm
+  - CryptoSwift
+  - DeviceKit (~> 1.0)
+  - DZNEmptyDataSet
+  - FileKit (~> 4.0.0)
+  - FSCalendar
+  - GDPerformanceView-Swift (~> 1.1.2)
+  - Hero
+  - IGListKit (~> 2.0.0)
+  - ImageViewer
+  - Kingfisher (~> 3.0)
+  - MGSwipeTableCell
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AsyncDisplayKit: 28de788f9d6ec573be7662f0fe8931e656357e93
+  BonMot: 9dbd59135974d2fa591a2084b3489bdc0e15e8f8
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
+  CryptoSwift: 685ae257941e5447474348a2b545583e1a16b573
+  DeviceKit: 461e525867e48e725f41699c1cab3100df1258ff
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FileKit: 2589d0393b3bfdc599c2ba6e41419be6db4279e0
+  FSCalendar: 6200ef796dfe85005ff2fb19bbd429f8be742f86
+  GDPerformanceView-Swift: 18086952416fa8af2df0e7bc8cfdda63afc7e0b6
+  Hero: bee4e762e84185b16a902dd11335c119515bb912
+  IGListKit: ee255e4e61865bc3e01ca96b690c5435c2887849
+  ImageViewer: 364abc0309c33dda86d08ca25b0243e5c67d8cd3
+  Kingfisher: 12eeffeef42ea45b68c5e5acfe8ba9005b713ab4
+  MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
+  PINCache: 6d273a6e0754bd26e3f12a38a90dde73cc6a42b2
+  PINRemoteImage: ff63baf185088530db6cfa41cb665e2b5126b5c3
+  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
+  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+
+PODFILE CHECKSUM: 212f581b1f3c2005ed6fa41a5f730c34b409dc69
+
+COCOAPODS: 1.2.0
