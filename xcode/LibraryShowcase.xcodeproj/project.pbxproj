@@ -14,6 +14,12 @@
 		711DA4D71E7078DD0030ED38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711DA4D61E7078DD0030ED38 /* Assets.xcassets */; };
 		711DA4DA1E7078DD0030ED38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711DA4D81E7078DD0030ED38 /* LaunchScreen.storyboard */; };
 		714E01C91E7080780047AF3B /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714E01C81E7080780047AF3B /* Storyboards.swift */; };
+		714E01CB1E71B3250047AF3B /* ExampleDataLoaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714E01CA1E71B3250047AF3B /* ExampleDataLoaderType.swift */; };
+		715B7FF81E71B5D0004C7734 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715B7FF71E71B5D0004C7734 /* Theme.swift */; };
+		715B7FFA1E71B614004C7734 /* AlamoFireDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715B7FF91E71B614004C7734 /* AlamoFireDataLoader.swift */; };
+		715B7FFC1E71BA5F004C7734 /* SiestaDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715B7FFB1E71BA5F004C7734 /* SiestaDataLoader.swift */; };
+		715B7FFE1E71C696004C7734 /* MoyaDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715B7FFD1E71C696004C7734 /* MoyaDataLoader.swift */; };
+		715B80001E71D03C004C7734 /* GraphDatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715B7FFF1E71D03C004C7734 /* GraphDatabaseViewController.swift */; };
 		7FAEAA00EABE5045547B9E24 /* Pods_LibraryShowcase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A1DCBE6A2B232CF4D22EE2 /* Pods_LibraryShowcase.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +35,12 @@
 		711DA4D91E7078DD0030ED38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711DA4DB1E7078DD0030ED38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		714E01C81E7080780047AF3B /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		714E01CA1E71B3250047AF3B /* ExampleDataLoaderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataLoaderType.swift; sourceTree = "<group>"; };
+		715B7FF71E71B5D0004C7734 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		715B7FF91E71B614004C7734 /* AlamoFireDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoFireDataLoader.swift; sourceTree = "<group>"; };
+		715B7FFB1E71BA5F004C7734 /* SiestaDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiestaDataLoader.swift; sourceTree = "<group>"; };
+		715B7FFD1E71C696004C7734 /* MoyaDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaDataLoader.swift; sourceTree = "<group>"; };
+		715B7FFF1E71D03C004C7734 /* GraphDatabaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDatabaseViewController.swift; sourceTree = "<group>"; };
 		E910F064549AD98E32FB2881 /* Pods-LibraryShowcase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LibraryShowcase.release.xcconfig"; path = "Pods/Target Support Files/Pods-LibraryShowcase/Pods-LibraryShowcase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +94,12 @@
 				711DA4D61E7078DD0030ED38 /* Assets.xcassets */,
 				711DA4D81E7078DD0030ED38 /* LaunchScreen.storyboard */,
 				711DA4DB1E7078DD0030ED38 /* Info.plist */,
+				714E01CA1E71B3250047AF3B /* ExampleDataLoaderType.swift */,
+				715B7FF71E71B5D0004C7734 /* Theme.swift */,
+				715B7FF91E71B614004C7734 /* AlamoFireDataLoader.swift */,
+				715B7FFB1E71BA5F004C7734 /* SiestaDataLoader.swift */,
+				715B7FFD1E71C696004C7734 /* MoyaDataLoader.swift */,
+				715B7FFF1E71D03C004C7734 /* GraphDatabaseViewController.swift */,
 			);
 			path = LibraryShowcase;
 			sourceTree = "<group>";
@@ -236,7 +254,13 @@
 			files = (
 				714E01C91E7080780047AF3B /* Storyboards.swift in Sources */,
 				711DA4D21E7078DD0030ED38 /* SecondViewController.swift in Sources */,
+				714E01CB1E71B3250047AF3B /* ExampleDataLoaderType.swift in Sources */,
+				715B7FFC1E71BA5F004C7734 /* SiestaDataLoader.swift in Sources */,
+				715B7FF81E71B5D0004C7734 /* Theme.swift in Sources */,
+				715B7FFE1E71C696004C7734 /* MoyaDataLoader.swift in Sources */,
 				711DA4CE1E7078DD0030ED38 /* AppDelegate.swift in Sources */,
+				715B7FFA1E71B614004C7734 /* AlamoFireDataLoader.swift in Sources */,
+				715B80001E71D03C004C7734 /* GraphDatabaseViewController.swift in Sources */,
 				711DA4D01E7078DD0030ED38 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

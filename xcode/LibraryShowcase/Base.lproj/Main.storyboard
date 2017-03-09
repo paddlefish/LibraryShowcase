@@ -121,6 +121,51 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="qHv-IG-n63">
+            <objects>
+                <viewController id="FhD-NW-oWu" customClass="GraphDatabaseViewController" customModule="LibraryShowcase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9RU-iv-xDZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="AZM-fh-eoO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1yG-mP-3xX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sfj-T9-Kgd">
+                                <rect key="frame" x="0.0" y="199.5" width="359" height="419.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXm-Yf-qIj" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="28" width="343" height="171.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AXm-Yf-qIj" secondAttribute="height" multiplier="2:1" id="n8E-s3-xSs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="AXm-Yf-qIj" secondAttribute="trailing" id="5Il-zo-2M0"/>
+                            <constraint firstItem="sfj-T9-Kgd" firstAttribute="leading" secondItem="1yG-mP-3xX" secondAttribute="leading" id="BAE-dx-2Xf"/>
+                            <constraint firstItem="AXm-Yf-qIj" firstAttribute="top" secondItem="9RU-iv-xDZ" secondAttribute="bottom" constant="8" symbolic="YES" id="DWW-ro-aLd"/>
+                            <constraint firstItem="sfj-T9-Kgd" firstAttribute="top" secondItem="AXm-Yf-qIj" secondAttribute="bottom" id="NBm-Ts-6xv"/>
+                            <constraint firstItem="AZM-fh-eoO" firstAttribute="top" secondItem="sfj-T9-Kgd" secondAttribute="bottom" constant="-1" id="UhO-5V-HeL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sfj-T9-Kgd" secondAttribute="trailing" id="chD-fh-hh4"/>
+                            <constraint firstItem="AXm-Yf-qIj" firstAttribute="leading" secondItem="1yG-mP-3xX" secondAttribute="leadingMargin" id="tVZ-31-jOq"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="fx2-5k-4BQ"/>
+                    <connections>
+                        <outlet property="barChart" destination="AXm-Yf-qIj" id="vAT-9M-hSX"/>
+                        <outlet property="tableView" destination="sfj-T9-Kgd" id="YEd-hz-jG5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOi-uK-Dzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1503.2" y="361.16941529235385"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -135,8 +180,9 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="v3N-BX-o61"/>
                         <segue destination="3Zn-UZ-CcW" kind="relationship" relationship="viewControllers" id="7Wn-nO-gk4"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lrT-MY-5Rx"/>
+                        <segue destination="FhD-NW-oWu" kind="relationship" relationship="viewControllers" id="efh-z0-Lnm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

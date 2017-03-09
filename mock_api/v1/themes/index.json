@@ -1,0 +1,37 @@
+[
+    {
+        "color": "red", 
+        "hex": "#f00", 
+        "name": "Rambunctious Red"
+    }, 
+    {
+        "color": "green", 
+        "hex": "#0f0", 
+        "name": "Glorious Green"
+    }, 
+    {
+        "color": "blue", 
+        "hex": "#00f", 
+        "name": "Brilliant Blue"
+    }, 
+    {
+        "color": "cyan", 
+        "hex": "#0ff", 
+        "name": "Cynical Cyan"
+    }, 
+    {
+        "color": "magenta", 
+        "hex": "#f0f", 
+        "name": "Moody Magenta"
+    }, 
+    {
+        "color": "yellow", 
+        "hex": "#ff0", 
+        "name": "Ye olde Yellow"
+    }, 
+    {
+        "color": "black", 
+        "hex": "#000", 
+        "name": "Bumbling Black"
+    }
+]

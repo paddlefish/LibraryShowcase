@@ -11,6 +11,8 @@ import GDPerformanceView_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+	static let SERVICE_URL = "http://localhost:8080/mock_api/v1/"
+	static let THEME_PATH = "themes/index.json"
 
 	var window: UIWindow?
 

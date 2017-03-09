@@ -26,6 +26,11 @@ PODS:
   - ImageViewer (4.0)
   - Kingfisher (3.5.1)
   - MGSwipeTableCell (1.5.6)
+  - Moya (8.0.2):
+    - Moya/Core (= 8.0.2)
+  - Moya/Core (8.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
   - PINCache (3.0.1-beta.2):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.2)
     - PINCache/Core (= 3.0.1-beta.2)
@@ -38,11 +43,28 @@ PODS:
   - PINRemoteImage/PINCache (3.0.0-beta.7):
     - PINCache (= 3.0.1-beta.2)
     - PINRemoteImage/Core
+  - PromiseKit (4.1.7):
+    - PromiseKit/Foundation (= 4.1.7)
+    - PromiseKit/QuartzCore (= 4.1.7)
+    - PromiseKit/UIKit (= 4.1.7)
+  - PromiseKit/CorePromise (4.1.7)
+  - PromiseKit/Foundation (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.1.7):
+    - PromiseKit/CorePromise
   - Realm (1.1.0):
     - Realm/Headers (= 1.1.0)
   - Realm/Headers (1.1.0)
   - RealmSwift (1.1.0):
     - Realm (= 1.1.0)
+  - Result (3.2.0)
+  - Siesta (1.1.0):
+    - Siesta/Core (= 1.1.0)
+  - Siesta/Core (1.1.0)
+  - Siesta/UI (1.1.0):
+    - Siesta/Core
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
@@ -61,6 +83,10 @@ DEPENDENCIES:
   - ImageViewer
   - Kingfisher (~> 3.0)
   - MGSwipeTableCell
+  - Moya
+  - PromiseKit (~> 4.0)
+  - Siesta (~> 1.0)
+  - Siesta/UI (~> 1.0)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -88,11 +114,15 @@ SPEC CHECKSUMS:
   ImageViewer: 364abc0309c33dda86d08ca25b0243e5c67d8cd3
   Kingfisher: 12eeffeef42ea45b68c5e5acfe8ba9005b713ab4
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
+  Moya: 47f61da5b634aa71f676431b64ee0f81e976296d
   PINCache: 6d273a6e0754bd26e3f12a38a90dde73cc6a42b2
   PINRemoteImage: ff63baf185088530db6cfa41cb665e2b5126b5c3
+  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  Result: 5a6705171c0613cc5fbf6ec55ff520cc62a8e81d
+  Siesta: ada9f35255e4eb16fad45cc3080927f6c6cba9cc
 
-PODFILE CHECKSUM: 212f581b1f3c2005ed6fa41a5f730c34b409dc69
+PODFILE CHECKSUM: 03b1bea17bdac6085c11fc213aa52d7f3e0f3410
 
 COCOAPODS: 1.2.0

@@ -24,10 +24,6 @@ public class FirstViewController: UIViewController, UITableViewDataSource, UITab
 	@IBOutlet var templateCell: MyCell!
 	@IBOutlet weak var arrghh: UIImageView!
 	
-	struct Theme {
-		let color: UIColor
-		let name: String
-	}
 	var themes: [Theme] = [] {
 		didSet {
 			tableView?.reloadData()
@@ -43,24 +39,50 @@ public class FirstViewController: UIViewController, UITableViewDataSource, UITab
 		arrghh.heroID = "arrghh"
 		isHeroEnabled = true
 		navigationController?.isHeroEnabled = true
+		
+		setupNavigationTitleItem()
+	}
+	
+	func setupNavigationTitleItem() {
+		let seg = UISegmentedControl(frame: CGRect(x: 0, y: 0, width: 250, height: 32))
+		seg.insertSegment(withTitle: "Alamofire", at: 0, animated: false)
+		seg.insertSegment(withTitle: "Siesta", at: 1, animated: false)
+		seg.insertSegment(withTitle: "Moya", at: 2, animated: false)
+		seg.addTarget(self, action: #selector(clearRows(sender:)), for: .valueChanged)
+		seg.selectedSegmentIndex = 0
+		navigationItem.titleView = seg
+	}
+	
+	@IBAction func clearRows(sender: Any) {
+		themes = []
 	}
 	
 	func loadData() {
-		Alamofire
-			.request("https://paddlefish.net/mock_api/v1/themes/")
-			.responseJSON { [weak self] response in
-				guard let sself = self, let rawThemes = response.result.value as? [Any] else {
-					return
-				}
-				sself.themes = rawThemes.flatMap {
-					if let entry = $0 as? [String:Any],
-							let name = entry["name"] as? String,
-							let hex = entry["hex"] as? String {
-						return FirstViewController.Theme(color: UIColor(hexString: hex)!.flatten(), name: name)
-					}
-					return nil
-				}
+		guard let seg = navigationItem.titleView as? UISegmentedControl else {
+			return
+		}
+		var loader: ExampleDataLoaderType!
+		switch seg.selectedSegmentIndex {
+			case 0:
+				loader = AlamoFireDataLoader()
+			case 1:
+				loader = SiestaDataLoader()
+			case 2:
+				loader = MoyaDataLoader()
+			default:
+				print("Not implemented")
+				return
+		}
+		
+		loader.loadThemes().then { [weak self] themes -> Void in
+			guard let sself = self else {
+				return
 			}
+			sself.themes = themes
+		}.catch { error in
+			print("Damn: \(error)")
+		}
+
 	}
 	
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
